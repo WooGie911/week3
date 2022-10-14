@@ -1,16 +1,14 @@
 // src/redux/modules/config/configStore.js
+import { configureStore } from "@reduxjs/toolkit";
+import counter from "../modules/counterSlice";
 
-import { createStore } from "redux";
-import { combineReducers } from "redux";
+import todolist from "../modules/todolistSlice";
 
-import counter from "../modules/counter";
-import todolist from "../modules/todolist";
+// import todolist from "../modules/todolist";
 
-const rootReducer = combineReducers({
-  counter: counter,
-  todolist: todolist,
+const store = configureStore({
+  reducer: { counter: counter, todolist: todolist },
 });
-const store = createStore(rootReducer);
 console.log(store);
 
 export default store;
