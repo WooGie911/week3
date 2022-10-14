@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { minusNUM, plusNUM } from "../redux/modules/counter";
+import { minusNUM, plusNUM } from "../redux/modules/counterSlice";
 
 const Counter = () => {
   const [num, setNum] = useState(0);
