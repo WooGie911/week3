@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { userRevise, deleteData } from "../../redux/modules/todolist";
+import { userRevise, deleteData } from "../../redux/modules/todolistSlice";
 import "./style.css";
 import { Link } from "react-router-dom";
 

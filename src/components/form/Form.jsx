@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { inputText } from "../../redux/modules/todolist";
+import { inputText } from "../../redux/modules/todolistSlice";
 import "./style.css";
 
 const Form = () => {
