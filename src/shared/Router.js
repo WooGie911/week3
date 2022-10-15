@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Counter from "../pages/Counter";
 import DetailPage from "../pages/DetailPage";
 import TodoList from "../pages/TodoList";
+import AxiosPrac from "../pages/AxiosPrac";
 
 const Router = () => {
   return (
@@ -17,6 +18,8 @@ const Router = () => {
 				 */}
         <Route path="/" element={<TodoList />} />
         <Route path="detailpage/:id" element={<DetailPage />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/AP" element={<AxiosPrac />} />
       </Routes>
     </BrowserRouter>
   );
