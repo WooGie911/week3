@@ -1,8 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { minusNUM, plusNUM } from "../redux/modules/counterSlice";
+import {
+  plusNUMThreeScond,
+  minusNUM,
+  plusNUM,
+} from "../redux/modules/counterSlice";
 
 const Counter = () => {
   const [num, setNum] = useState(0);
@@ -19,7 +22,6 @@ const Counter = () => {
   return (
     <div>
       {gnumber}
-
       <input type="number" onChange={onChangeHandlerInCounter} />
       <button
         onClick={() => {
@@ -28,13 +30,20 @@ const Counter = () => {
       >
         +
       </button>
-
       <button
         onClick={() => {
           dispatch(minusNUM(num));
         }}
       >
         -
+      </button>
+      3초 +
+      <button
+        onClick={() => {
+          dispatch(plusNUMThreeScond(num));
+        }}
+      >
+        +3
       </button>
     </div>
   );
