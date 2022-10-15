@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   user: [
@@ -17,13 +18,25 @@ const initialState = {
   ],
 };
 
+export const __inputText = createAsyncThunk(
+  "inputText",
+  async (payload, thunkAPI) => {
+    try {
+      const data = await axios.get("http://localhost:3001/todos");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const todolistSlice = createSlice({
   name: "todolist",
   initialState,
   reducers: {
     inputText: (state, action) => {
       state.user.push(action.payload);
-      state = { ...state, user: [...state.user] };
+      state.user = [...state.user];
     },
 
     userRevise: (state, action) => {
@@ -32,7 +45,7 @@ const todolistSlice = createSlice({
           value.isDone = !value.isDone;
         }
       });
-      state = { ...state, user: [...state.user] };
+      state.user = [...state.user];
     },
 
     deleteData: (state, action) => {
@@ -43,7 +56,7 @@ const todolistSlice = createSlice({
         return false;
       });
       state.user.splice(indexId, 1);
-      state = { ...state, user: [...state.user] };
+      state.user = [...state.user];
     },
   },
 });
