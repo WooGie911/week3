@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { inputText } from "../../redux/modules/todolistSlice";
+import { createData } from "../../redux/modules/todolistSlice";
 import "./style.css";
 
 const Form = () => {
@@ -28,7 +28,7 @@ const Form = () => {
     if (input.title.trim() === "" || input.body.trim() === "")
       return alert("제목과 내용을 모두 입력 하세요");
     const insertID = { ...input, id: inputId };
-    dispatch(inputText(insertID));
+    dispatch(createData(insertID));
     setInput(initialState);
   };
 

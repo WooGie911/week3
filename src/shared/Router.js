@@ -4,6 +4,11 @@ import Counter from "../pages/Counter";
 import DetailPage from "../pages/DetailPage";
 import TodoList from "../pages/TodoList";
 import AxiosPrac from "../pages/AxiosPrac";
+import PracMain from "../pages/PracMain";
+import PracList from "../pages/PracList";
+import PracForm from "../pages/PracForm";
+import PracDetail from "../pages/PracDetail";
+import PracUpdate from "../pages/PracUpdate";
 
 const Router = () => {
   return (
@@ -20,6 +25,11 @@ const Router = () => {
         <Route path="detailpage/:id" element={<DetailPage />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/AP" element={<AxiosPrac />} />
+        <Route path="/Prac" element={<PracMain />} />
+        <Route path="/Prac/List" element={<PracList />} />
+        <Route path="/Prac/Form" element={<PracForm />} />
+        <Route path="/Prac/Update/:id" element={<PracUpdate />} />
+        <Route path="/Prac/Detail/:id" element={<PracDetail />} />
       </Routes>
     </BrowserRouter>
   );

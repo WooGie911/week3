@@ -16,10 +16,11 @@ const initialState = {
       isDone: true,
     },
   ],
+  comment: [],
 };
 
-export const __inputText = createAsyncThunk(
-  "inputText",
+export const __CreateData = createAsyncThunk(
+  "CreateData",
   async (payload, thunkAPI) => {
     try {
       const data = await axios.get("http://localhost:3001/todos");
@@ -34,9 +35,14 @@ const todolistSlice = createSlice({
   name: "todolist",
   initialState,
   reducers: {
-    inputText: (state, action) => {
+    createData: (state, action) => {
       state.user.push(action.payload);
       state.user = [...state.user];
+    },
+
+    createCommentData: (state, action) => {
+      state.comment.push(action.payload);
+      state.comment = [...state.comment];
     },
 
     userRevise: (state, action) => {
@@ -55,13 +61,44 @@ const todolistSlice = createSlice({
         }
         return false;
       });
+
       state.user.splice(indexId, 1);
+      state.user = [...state.user];
+    },
+
+    deleteCommentData: (state, action) => {
+      const indexId = state.comment.findIndex((comment) => {
+        if (comment.id === action.payload) {
+          return true;
+        }
+        return false;
+      });
+      state.comment.splice(indexId, 1);
+      state.comment = [...state.comment];
+    },
+
+    updateData: (state, action) => {
+      const indexId = state.user.findIndex((user) => {
+        if (user.id == action.payload.id) {
+          return true;
+        }
+        return false;
+      });
+      state.user[indexId] = action.payload;
+
       state.user = [...state.user];
     },
   },
 });
 
 // 액션크리에이터는 컴포넌트에서 사용하기 위해 export 하고
-export const { inputText, userRevise, deleteData } = todolistSlice.actions;
+export const {
+  createData,
+  userRevise,
+  deleteData,
+  updateData,
+  deleteCommentData,
+  createCommentData,
+} = todolistSlice.actions;
 // reducer 는 configStore에 등록하기 위해 export default 합니다.
 export default todolistSlice.reducer;

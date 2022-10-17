@@ -22,7 +22,6 @@ const AxiosPrac = () => {
   const fetchTodos = async () => {
     const { data } = await axios.get("http://localhost:3001/todos");
     setTodos(data);
-    console.log(data[0].id);
   };
 
   const onSubmitHandler = (todo) => {
@@ -37,11 +36,14 @@ const AxiosPrac = () => {
   const onClickEditButtonHandler = (todoId, edit) => {
     axios.patch(`http://localhost:3001/todos/${todoId}`, edit);
   };
-
-  useEffect(() => {
+  useCallback(() => {
     fetchTodos();
-  }, []);
-  //
+  }, [fetchTodos]);
+
+  // useEffect(() => {
+  //   fetchTodos();
+  // }, [fetchTodos]);
+  //fetchTodos
 
   return (
     <>
