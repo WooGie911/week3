@@ -9,6 +9,7 @@ import PracList from "../pages/PracList";
 import PracForm from "../pages/PracForm";
 import PracDetail from "../pages/PracDetail";
 import PracUpdate from "../pages/PracUpdate";
+import Todo from "../pages/Todo";
 
 const Router = () => {
   return (
@@ -30,6 +31,7 @@ const Router = () => {
         <Route path="/Prac/Form" element={<PracForm />} />
         <Route path="/Prac/Update/:id" element={<PracUpdate />} />
         <Route path="/Prac/Detail/:id" element={<PracDetail />} />
+        <Route path="/TD" element={<Todo />} />
       </Routes>
     </BrowserRouter>
   );
